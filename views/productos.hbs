@@ -1,0 +1,30 @@
+<div class="container text-bg-success text text-center fst-italic">
+    <hr>
+    <h1>Bienvenido a la sección de productos</h1>
+    <hr>
+</div>
+
+<div class="container text-bg-dark text text-center fst-italic">
+    <h2>Aquí podras publicar productos utilizados en medicina y lo mejor es que no tiene cargo alguno. </h2>
+</div>
+<hr>
+<div class="container m-5">
+    <form action="/productos" method="post">
+        <div class="mb-4">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text">Coloca el nombre del producto...</div>
+            
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" name="precio" aria-describedby="contraseña" required>
+            <div id="contraseña" class="form-text">Coloca el precio del producto...
+            </div>
+            </div>
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" aria-describedby="contraseña" required>
+            <div id="contraseña" class="form-text">Coloca la descripción del producto...
+            </div>
+        </div>
+        <div class="text-center"><button type="submit" class="btn btn-success w-75">Aplicar</button></div>
+    </form>
+</div>

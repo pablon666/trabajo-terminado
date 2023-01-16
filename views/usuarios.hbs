@@ -1,0 +1,26 @@
+<div class="container text-bg-success text text-center fst-italic">
+    <hr>
+    <h1>INGRESO DE USUARIOS:</h1>
+    <hr>
+</div>
+<hr>
+
+<div class="container m-5">
+    <form action="/auth" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="idEmail" name="idEmail" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text">Coloca tu mail...</div>
+        </div>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="passw" name="passw" aria-describedby="contraseña" required>
+            <div id="contraseña" class="form-text">Coloca tu contraseña...
+        </div>
+
+        <div class="text-center"><button type="submit" class="btn btn-primary w-75">INGRESAR</button></div>
+        <hr>
+
+        <div class="text-center"><button onclick="window.location.href='/registro'" class="btn btn-primary text-light w-75">REGISTRARSE</button></div>
+    </form>
+    
+</div>

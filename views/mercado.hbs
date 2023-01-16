@@ -1,0 +1,113 @@
+<div class="container text-bg-success text text-center fst-italic">
+    <hr>
+    <h1>Bienvenido al mercado de medicArg</h1>
+    <hr>
+</div>
+<hr>
+<table class="table table-striped table-danger table-hover container caption-top" id="mitabla">
+    <caption class="text-center fst-italic">LISTA DE PRODUCTOS</caption>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each datos}}
+        <tr>
+            <th scope="row">{{idProductos}}</th>
+            <td>{{nombre}}</td>
+            <td>{{precio}}</td>
+            <td>{{descripcion}}</td>
+            <td>
+                <a href="javascript:void(0);" class="btn btn-primary update" data-idProductos="{{idProductos}}"data-nombre="{{nombre}}"data-precio="{{precio}}"data-descripcion="{{descripcion}}">Editar</a>
+                <a href="javascript:void(0);" class="btn btn-danger delete" data-idProductos="{{idProductos}}">Borrar</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<form action="/delete" method="post">
+    <div class="modal" id="deleteModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Si aceptas, eliminaras tu producto del mercado.</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="number" name="idProductos" id="idProductos" class="idProductos" required>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form action="/update" method="post">
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edicion de productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control nombre" id="nombre" name="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" class="col-form-label">Precio:</label>
+                            <input type="number" class="form-control precio" id="precio" name="precio">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="col-form-label">Descripcion:</label>
+                            <textarea class="form-control descripcion" id="descripcion" name="descripcion"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="number" name="idProductos" id="idProductos" class="idProductos">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#mitabla').on('click', '.delete', function () {
+            let idProductos = $(this).data('idProductos');
+            $('#deleteModal').modal('show')
+        })
+
+        $('#mitabla').on('click', '.update', function () {
+            let idProductos = $(this).data('idProductos');
+            let nombre = $(this).data('nombre');
+            let precio = $(this).data('precio');
+            let descripcion = $(this).data('descripcion');
+            $('#updateModal').modal('show');
+            $('.nombre').val(nombre);
+            $('.precio').val(precio);
+            $('.descripcion').val(descripcion);
+        })
+    })
+
+
+
+</script>
+
+
